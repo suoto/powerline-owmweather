@@ -248,8 +248,8 @@ def _fetch_weather(pl, location_query, units, openweathermap_api_key):
         return {
             "condition": weather_json["weather"][0]["main"].lower(),
             "humidity": float(weather_json["main"]["humidity"]),
-            "temp": abs(float(weather_json["main"]["temp"])),
-            "feels_like": abs(float(weather_json["main"]["feels_like"])),
+            "temp": float(weather_json["main"]["temp"]),
+            "feels_like": float(weather_json["main"]["feels_like"]),
             "weather_id": weather_json["weather"][0]["id"],
             "icon": weather_json["weather"][0]["icon"],
         }
