@@ -57,7 +57,7 @@ class WeatherSegment(KwThreadedSegment):
             timestamp = cache["timestamp"]
             if timestamp + WeatherSegment.update_interval < time.time():
                 data = None
-        except FileNotFoundError:
+        except (FileNotFoundError, json.JSONDecodeError):
             data = None
             timestamp = time.time()
 
